@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-Han">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>键盘demo</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+   <header></header>
+   <main >
+     <div id='main'>
+
+     </div>
+   </main>
+   <footer></footer>
+<script>
+var keys ={
+  0:['q','w','e','r','t','y','u','i','o','p'],
+  1:['a','s','d','f','g','h','j','k','l'],
+  2:['z','x','c','v','b','n','m'],
+  length: 3
+}
+var hash = {
+  q: 'qq.com',
+  w: 'weibo.com',
+  e: 'ele.me',
+  r: 'renren.com',
+  t: 'tianya.com',
+  y: 'yahoo.cn',
+  u: 'uc.com',
+  i: 'iqiyi.com',
+  o: 'opera.com',
+  p: undefined,
+  a: 'acfun.cn',
+  z: 'zhihu.com'
+}
+var h = JSON.parse(localStorage.getItem('uuu')||'')
+if(h){
+  hash = h
+}
+index = 0;
+while(index < keys['length']){
+  var div1 = document.createElement('div')
+  main.appendChild(div1)
+  row = keys[index]//第一行的数据  第二行的数据  第三行的数据
+  index2 = 0
+  while(index2 < row['length']){
+    kbd = document.createElement('kbd')
+    kbd.textContent = row[index2]
+    button = document.createElement('button')
+    button.textContent = '编辑'
+    button.id = row[index2]
+    button.onclick = function(abc) {
+      key = abc['target']['id']
+      x = prompt('给我一个网址')
+      hash[key] = x
+      localStorage.setItem('uuu',JSON.stringify(hash))
+    }
+    kbd.appendChild(button)
+    div1.appendChild(kbd)
+    index2+=1
+  }
+  
+  index+=1
+}
+document.onkeypress = function(abc) {
+  key = abc['key']
+  weblist = hash[key]
+  // location.href = 'http://' + weblist
+  window.open('http://' + weblist,'_black')
+}
+</script>
+</body>
+</html>
