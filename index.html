@@ -11,6 +11,7 @@
 <body>
    <header></header>
    <main >
+     
      <div id='main'>
 
      </div>
@@ -37,19 +38,23 @@ var hash = {
   a: 'acfun.cn',
   z: 'zhihu.com'
 }
-var h = JSON.parse(localStorage.getItem('uuu')||'')
+var h = JSON.parse(localStorage.getItem('uuu')||'null')
 if(h){
   hash = h
 }
 index = 0;
 while(index < keys['length']){
   var div1 = document.createElement('div')
+  div1.className = 'row'
   main.appendChild(div1)
   row = keys[index]//第一行的数据  第二行的数据  第三行的数据
   index2 = 0
   while(index2 < row['length']){
     kbd = document.createElement('kbd')
-    kbd.textContent = row[index2]
+    span = document.createElement('span')
+    kbd.appendChild(span)
+    span.textContent = row[index2]
+    kbd.className='kbd'
     button = document.createElement('button')
     button.textContent = '编辑'
     button.id = row[index2]

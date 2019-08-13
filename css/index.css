@@ -5,8 +5,19 @@
 a {
   text-decoration: none;
 }
+body{
+  background: url(../1.jpeg) no-repeat center center;
+  background-size: cover;
+}
 main {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#main {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
 }
 kbd {
   width: 4em;
@@ -26,6 +37,33 @@ kbd:hover button {
   display: block;
   
 }
-#main > div:nth-child(3) {
-  margin-left: -1em;
+#main > div:nth-child(2) {
+  margin-left: 40px;
 } 
+#main > div:nth-child(3) {
+  margin-left: 70px;
+} 
+.kbd {
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(to bottom, #292929 0%,#111111 100%); 
+  color: #c5c5c5;
+  border: 1px solid #373737;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1px #1A1B1C,0 0 0 1px #1F2020;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.row {
+  margin: 20px;
+}
+.row .kbd {
+  margin: 5px;
+}
+kbd span {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+}
